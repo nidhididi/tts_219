@@ -1,0 +1,33 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.date_select :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :grade %><br>
+    <%= f.number_field :grade %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
